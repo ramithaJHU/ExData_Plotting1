@@ -16,6 +16,3 @@ png("plot1.png", width=480, height=480)
 
 hist(globalActivePower, xlab="Global Active Power (kW)",ylab="Frequency (Hz)",main="Histogram of Global Active Power", col="red", border="black")
 dev.off()
-
-
-
