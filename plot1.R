@@ -14,5 +14,5 @@ global_active_power <-na.omit(global_active_power)
 # histogram of global active power 
 png("plot1.png", width=480, height=480)
 
-hist(global_active_power, xlab="Global Active Power (kW)",ylab="Frequency (Hz)",main="Histogram of Global Active Power", col="red", border="black")
+hist(global_active_power, xlab="Global Active Power (kilowatts)",ylab="Frequency",main="Global Active Power", col="red", border="black")
 dev.off()
