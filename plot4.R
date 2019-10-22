@@ -14,10 +14,16 @@ global_reactive_power <- as.numeric(dates_subset$Global_reactive_power)
 # Subset to extract Voltage Data
 voltage <- as.numeric(dates_subset$Voltage)
 
+
+# Subset to extract sub metering data 
+sub_metering_1 <- as.numeric(dates_subset$Sub_metering_1)
+sub_metering_2 <- as.numeric(dates_subset$Sub_metering_2)
+sub_metering_3 <- as.numeric(dates_subset$Sub_metering_3)
+
 # Subset to extract time data and format them
 date_data <- dates_subset$Date
 time_data <- dates_subset$Time
-date_and_time <- strptime(paste(dateData, timeData, sep=" "), "%d/%m/%Y %H:%M:%S")
+date_and_time <- strptime(paste(date_data, time_data, sep=" "), "%d/%m/%Y %H:%M:%S")
 
 # Format plotting area size and splitting into 4
 png("plot4.png", width=480, height=480)
