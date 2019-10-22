@@ -1,9 +1,21 @@
-dataFile <- "./household_power_consumption.txt"
-data <- read.table(dataFile, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
-subSetData <- data[data$Date %in% c("1/2/2007","2/2/2007") ,]
+# Create a histogram of Global Active Power Consumption between 2007-02-01 and 2007-02-02
+#read data from .txt file located in project folder
+powerConsumption <- read.table("./household_power_consumption.txt", stringsAsFactors = FALSE, header = TRUE, sep =";")
 
-#str(subSetData)
-globalActivePower <- as.numeric(subSetData$Global_active_power)
+#subset dataset to extract data in date range of 2007-02-01 to 2007-02-02
+subsetDates <- powerConsumption[powerConsumption$Date %in% c("1/2/2007","2/2/2007") ,]
+
+# Subset to extract only the Active Power Data
+globalActivePower <- as.numeric(subsetDates$Global_active_power)
+
+#remove rows having NA values
+globalActivePower <-na.omit(globalActivePower)
+
+# histogram of global active power 
 png("plot1.png", width=480, height=480)
-hist(globalActivePower, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
+
+hist(globalActivePower, xlab="Global Active Power (kW)",ylab="Frequency (Hz)",main="Histogram of Global Active Power", col="red", border="black")
 dev.off()
+
+
+
